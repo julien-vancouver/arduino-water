@@ -32,7 +32,7 @@ void setup() {
   /*
      open the serial port
   */
-  Serial.begin(19200);
+  Serial.begin(9600);
 
   /*
     Setup the pin modes for each pin declared
@@ -99,8 +99,10 @@ void manageGarden() {
    Send data back over serial
 */
 void sendData() {
-  Serial.print(";moisture_sensor: ");
-  Serial.print(currentMoistureLevel);
-  Serial.print(";\n");
+  Serial.print("moisture level: ");
+  Serial.println(currentMoistureLevel);
+  Serial.print("Watered ");
+  Serial.print(current_water_cycles);
+  Serial.println(" times today");
   delay(10000);
 }
